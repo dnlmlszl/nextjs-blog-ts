@@ -1,36 +1,73 @@
+'use client';
 import Link from 'next/link';
-import { FaTwitter, FaGithub, FaLinkedin, FaLaptop } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaLaptop, FaMoon, FaSun } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
+import { useContext } from 'react';
+import MyProfilePic from './MyProfilePic';
+import DarkThemeContext from '../store/DarkmodeContext';
 
 const srcTw = 'https://twitter.com/dn1el_lszl0';
 const srcGh = 'https://github.com/dnlmlszl';
 const srcLn =
   'https://www.linkedin.com/in/l%C3%A1szl%C3%B3-d%C3%A1niel-a39a956b/';
+const srcWeb = 'https://lmdcode.dev';
 
 const Navbar = () => {
+  const { isDarkTheme, toggleThemeHandler } = useContext(DarkThemeContext);
+
+  const darkModeClasses = isDarkTheme
+    ? 'bg-zinc-900 text-zinc-300 hover:text-zinc-200'
+    : 'bg-zinc-200 text-zinc-600 hover:text-zinc-700';
   return (
-    <nav className="bg-slate-600 p-4 sticky top-0 drop-shadow-xl z-10">
-      <div className="md:px-6 prose prose-xl mx-auto flex justify-between flex-col sm:flex-row">
-        <h1 className="text-3xl font-bold text-white grid place-content-center mb-2 md:mb-0">
-          <Link
-            href="/"
-            className="text-white/90 no-underline hover:text-white"
-          >
-            M Daniels
+    <nav className={`p-4 sticky top-0  z-10 ${darkModeClasses}`}>
+      <div className="flex justify-between items-center flex-col sm:flex-row md:px-6 mx-auto">
+        <div className="flex items-center gap-4">
+          <h1 className="text-2xl font-bold grid place-content-center mb-2 md:mb-0">
+            <Link href="/" className="no-underline tracking-widest">
+              LMD Blog
+            </Link>
+          </h1>
+          <div className="block sm:hidden mb-2 sm:mb-0 order-last">
+            {isDarkTheme ? (
+              <FaSun
+                className="text-yellow-500 text-xl cursor-pointer"
+                onClick={toggleThemeHandler}
+              />
+            ) : (
+              <FaMoon
+                className="text-slate-700 text-xl cursor-pointer"
+                onClick={toggleThemeHandler}
+              />
+            )}
+          </div>
+        </div>
+        <div className="flex flex-row justify-center sm:justify-evenly align-middle items-center gap-8 text-xl lg:text-2xl">
+          <Link href={srcTw} className="hover:text-yellow-600">
+            <FaXTwitter />
           </Link>
-        </h1>
-        <div className="flex flex-row justify-center sm:justify-evenly align-middle gap-4 text-white text-4xl lg:text-5xl">
-          <Link className="text-white/90 hover:text-white" href={srcTw}>
-            <FaTwitter />
-          </Link>
-          <Link className="text-white/90 hover:text-white" href={srcGh}>
+          <Link href={srcGh} className="hover:text-yellow-600">
             <FaGithub />
           </Link>
-          <Link className="text-white/90 hover:text-white" href={srcLn}>
+          <Link href={srcLn} className="hover:text-yellow-600">
             <FaLinkedin />
           </Link>
-          <Link className="text-white/90 hover:text-white" href={srcTw}>
+          <Link href={srcWeb} className="hover:text-yellow-600">
             <FaLaptop />
           </Link>
+          <MyProfilePic />
+        </div>
+        <div className="hidden sm:block mb-2 sm:mb-0 order-first sm:order-last">
+          {isDarkTheme ? (
+            <FaSun
+              className="text-yellow-500 text-xl cursor-pointer"
+              onClick={toggleThemeHandler}
+            />
+          ) : (
+            <FaMoon
+              className="text-slate-700 text-xl cursor-pointer"
+              onClick={toggleThemeHandler}
+            />
+          )}
         </div>
       </div>
     </nav>
