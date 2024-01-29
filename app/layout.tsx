@@ -3,7 +3,7 @@ import Navbar from './components/Navbar';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "M Daniels' Blog",
+  title: "Laszlo Mihaly Daniel's Blog",
   description: 'Created by LMD',
 };
 
@@ -14,11 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="dark:bg-zinc-900">
+      <body className="bg-zinc-100">
         <Navbar />
-        <main className="px-4md:px-6 prose prose-xl prose-slate dark:prose-invert mx-auto">
-          {children}
-        </main>
+        <main className="px-4md:px-6 mx-auto">{children}</main>
       </body>
     </html>
   );

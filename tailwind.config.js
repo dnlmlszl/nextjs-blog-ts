@@ -6,7 +6,11 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        featuredImage: 'url("https://picsum.photos/1000/800")',
+      },
+    },
   },
   plugins: [
     require('@tailwindcss/typography'),

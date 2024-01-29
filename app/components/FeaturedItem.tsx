@@ -8,13 +8,13 @@ type Props = {
   post: Meta;
 };
 
-function ListItem({ post }: Props) {
+function FeaturedItem({ post }: Props) {
   const { id, title, date, tags } = post;
   const formattedDate = getFormattedDate(date);
 
   return (
     <article
-      className={`flex flex-col justify-between mb-4 h-full border bg-zinc-200 text-zinc-700 hover:text-zinc-600 tracking-widest rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300`}
+      className={`flex flex-col justify-between h-full border bg-zinc-200/60 text-zinc-700 hover:text-zinc-600 tracking-widest rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300`}
     >
       <div className="p-4">
         <h3 className="text-xl font-bold mb-2 tracking-widest text-zinc-600">
@@ -27,10 +27,10 @@ function ListItem({ post }: Props) {
           </div>
         </div>
       </div>
-      <div className="p-4 bg-zinc-300">
+      <div className="p-4">
         <Link
           href={`/posts/${id}`}
-          className="text-zinc-600 hover:text-zinc-700 transition duration-200 linear"
+          className="text-zinc-700 text-xl hover:text-zinc-500 transition duration-200 linear"
         >
           Read More
         </Link>
@@ -39,4 +39,4 @@ function ListItem({ post }: Props) {
   );
 }
 
-export default ListItem;
+export default FeaturedItem;
