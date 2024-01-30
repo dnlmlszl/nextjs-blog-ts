@@ -11,7 +11,7 @@ const srcWeb = 'https://lmdcode.dev';
 
 const Navbar = () => {
   return (
-    <nav className={'py-4 sticky top-0 z-10 bg-zinc-100 text-zinc-700'}>
+    <nav className={'py-4 sticky top-0 bg-zinc-100 text-zinc-700 z-[60]'}>
       <div className="flex justify-evenly items-center flex-col sm:flex-row md:px-6 mx-auto">
         <div className="flex items-center gap-4">
           <h1 className="text-2xl font-bold grid place-content-center mb-2 md:mb-0">

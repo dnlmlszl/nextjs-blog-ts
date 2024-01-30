@@ -22,17 +22,19 @@ const Posts = async () => {
     <>
       <section className="mt-2 mx-auto max-w-7xl p-4 min-h-screen grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2">
-          <article className="grid grid-rows-[45vh_1fr] gap-6">
+          <article className="grid grid-rows-[60vh_1fr] gap-6">
             <div className="row-span-1 bg-featuredImage bg-cover bg-center relative rounded-xl">
               <div className="absolute inset-0 bg-black bg-opacity-10 z-10 rounded-lg">
                 <FeaturedItem post={featuredPost} />
               </div>
             </div>
-            {otherPosts.map((post) => (
-              <div key={post.id}>
-                <ListItem post={post} />
-              </div>
-            ))}
+            <div className="grid md:grid-cols-2 gap-4 sm:gap-3">
+              {otherPosts.map((post) => (
+                <div key={post.id}>
+                  <ListItem post={post} />
+                </div>
+              ))}
+            </div>
           </article>
         </div>
         <aside className="lg:col-span-1 lg:ml-12">
